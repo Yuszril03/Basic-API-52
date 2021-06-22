@@ -11,6 +11,17 @@ namespace API.Models
     [Table("TB_T_Profiling")]
     public class Profiling
     {
+        public Profiling()
+        {
+        }
+
+        public Profiling(string nIK, Account account, Education education)
+        {
+            NIK = nIK;
+            this.account = account;
+            this.education = education;
+        }
+
         [Key]
         public string NIK { get; set; }
         [JsonIgnore]

@@ -10,6 +10,17 @@ namespace API.Models
     [Table("TB_M_Education")]
     public class Education
     {
+        public Education()
+        {
+        }
+
+        public Education(string degree, string gPA, University university)
+        {
+            Degree = degree;
+            GPA = gPA;
+            this.university = university;
+        }
+
         public int Id { get; set; }
         public string Degree { get; set; }
         public string GPA { get; set; }

@@ -11,7 +11,17 @@ namespace API.Models
     [Table("TB_T_Account")]
     public class Account
     {
-      
+        public Account()
+        {
+        }
+
+        public Account(string nIK, string password, Employee employee)
+        {
+            NIK = nIK;
+            Password = password;
+            this.employee = employee;
+        }
+
         [Key]
         public string NIK { get; set; }
         public string Password { get; set; }
