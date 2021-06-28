@@ -20,6 +20,8 @@ namespace API.Context
         public DbSet<Education> Education { get; set; }
         public DbSet<Account> Account { get; set; }
         public DbSet<Profiling> Profiling { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<AccountRole> AccountRole { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -45,8 +47,17 @@ namespace API.Context
 
             modelBuilder.Entity<Profiling>()
                 .HasOne(p => p.education)
-                .WithMany(ed => ed.profilings);
-                
+                .WithMany(ed => ed.profilings); 
+            
+            modelBuilder.Entity<AccountRole>()
+                .HasOne(ar => ar.account)
+                .WithMany(a => a.accountRoles);
+
+            modelBuilder.Entity<AccountRole>()
+               .HasOne(ar => ar.role)
+               .WithMany(r => r.accountRoles);
+
+
 
 
         }

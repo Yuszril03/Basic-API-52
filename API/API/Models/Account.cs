@@ -25,9 +25,11 @@ namespace API.Models
         [Key]
         public string NIK { get; set; }
         public string Password { get; set; }
+        public string Guid { get; set; }
         [JsonIgnore]
         public virtual Profiling profiling { get; set; }
         [JsonIgnore]
         public virtual Employee employee { get; set; }
+        public virtual ICollection<AccountRole> accountRoles { get; set; }
     }
 }

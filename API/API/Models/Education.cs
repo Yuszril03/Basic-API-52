@@ -26,7 +26,8 @@ namespace API.Models
         public string GPA { get; set; }
         [JsonIgnore]
         public virtual University university { get; set; }
-        [JsonIgnore]
+        public int universityId { get; set; }
+        //[JsonIgnore]
         public virtual ICollection<Profiling> profilings { get; set; }
     }
 }
