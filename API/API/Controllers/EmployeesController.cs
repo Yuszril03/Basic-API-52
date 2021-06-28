@@ -25,7 +25,7 @@ namespace API.Controllers
    
     [Route("api/[controller]")]
     [ApiController]
-    //[EnableCors("AllowOrigin")]
+    [EnableCors("AllowOrigin")]
     public class EmployeesController : BaseController<Employee, EmployeeRepository, string>
     {
         private readonly EmployeeRepository employeeRepository;

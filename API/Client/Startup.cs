@@ -53,13 +53,14 @@ namespace Client
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //app.UseCors(options => options.WithOrigins("https://localhost:44321"));
+           
 
             //app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseCors(options => options.WithOrigins("https://localhost:44321"));
 
             app.UseEndpoints(endpoints =>
             {

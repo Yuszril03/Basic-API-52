@@ -49,16 +49,16 @@ namespace API
                 };
             });
 
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            });
-
-
             //services.AddCors(c =>
             //{
-            //    c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44321"));
+            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
             //});
+                
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44311"));
+            });
 
 
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
@@ -85,12 +85,14 @@ namespace API
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseCors(options => options.WithOrigins("https://localhost:44321"));
-            app.UseCors(options => options.AllowAnyOrigin());
+          
+            //app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(options => options.WithOrigins("https://localhost:44311"));
 
             app.UseAuthentication();
 
