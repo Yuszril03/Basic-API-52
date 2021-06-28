@@ -5,6 +5,7 @@ using API.Models;
 using API.Repository.Data;
 using API.ViewModel;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,7 @@ namespace API.Controllers
    
     [Route("api/[controller]")]
     [ApiController]
+    //[EnableCors("AllowOrigin")]
     public class EmployeesController : BaseController<Employee, EmployeeRepository, string>
     {
         private readonly EmployeeRepository employeeRepository;
