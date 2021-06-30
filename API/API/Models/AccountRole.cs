@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace API.Models
         public int AccountRoleId { get; set; }
         public virtual Account account { get; set; }
         public string AccountId { get; set; }
+        [JsonIgnore]
         public virtual Role role { get; set; }
         public int RoleId { get; set; }
 

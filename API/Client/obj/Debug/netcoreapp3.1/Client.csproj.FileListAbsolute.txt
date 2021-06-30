@@ -35,3 +35,7 @@ C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Client.dll
 C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
 C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
+C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\Testing\Index.cshtml.g.cs
+C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\Coba\Index.cshtml.g.cs
+C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutCoba.cshtml.g.cs
+C:\Users\A409F\source\repos\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\Coba\Ajax.cshtml.g.cs
