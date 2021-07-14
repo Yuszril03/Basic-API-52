@@ -203,28 +203,30 @@ namespace API.Repository.Data
            
          
         }
-        public List<string> GetDataLogin(LoginVM loginVM)
-        {
-            List<string> data = new List<string>();
-            var cekEmployeeEmail = myContext1.Employees.SingleOrDefault(e => e.Email == loginVM.NIK);
-            var cekEmployeeNIK = myContext1.Employees.SingleOrDefault(e => e.NIK == loginVM.NIK);
-            if (cekEmployeeEmail != null)
+            public List<string> GetDataLogin(LoginVM loginVM)
             {
-                data.Add(cekEmployeeEmail.Email);
-                var cekAccount = myContext1.AccountRole.SingleOrDefault(e => e.AccountId == cekEmployeeEmail.NIK);
-                var cekRole = myContext1.Role.Find(cekAccount.RoleId);
-                data.Add(cekRole.RoleName);
+                List<string> data = new List<string>();
+                var cekEmployeeEmail = myContext1.Employees.SingleOrDefault(e => e.Email == loginVM.NIK);
+                var cekEmployeeNIK = myContext1.Employees.SingleOrDefault(e => e.NIK == loginVM.NIK);
+                if (cekEmployeeEmail != null)
+                {
+                    data.Add(cekEmployeeEmail.Email);
+                    var cekAccount = myContext1.AccountRole.SingleOrDefault(e => e.AccountId == cekEmployeeEmail.NIK);
+                    var cekRole = myContext1.Role.Find(cekAccount.RoleId);
+                    data.Add(cekRole.RoleName);
+                    data.Add(cekEmployeeEmail.FirstName);
                
+                }
+                else if (cekEmployeeNIK != null)
+                {
+                    data.Add(cekEmployeeNIK.Email);
+                    var cekAccount = myContext1.AccountRole.SingleOrDefault(e => e.AccountId == cekEmployeeNIK.NIK);
+                    var cekRole = myContext1.Role.Find(cekAccount.RoleId);
+                    data.Add(cekRole.RoleName);
+                    data.Add(cekEmployeeNIK.FirstName);
             }
-            else if (cekEmployeeNIK != null)
-            {
-                data.Add(cekEmployeeNIK.Email);
-                var cekAccount = myContext1.AccountRole.SingleOrDefault(e => e.AccountId == cekEmployeeNIK.NIK);
-                var cekRole = myContext1.Role.Find(cekAccount.RoleId);
-                data.Add(cekRole.RoleName);
+                return data;
             }
-            return data;
-        }
         public IQueryable GetProfil(string nik)
         {
             var getNIK = myContext1.Employees.Find(nik);
@@ -287,30 +289,30 @@ namespace API.Repository.Data
         }
         public IEnumerable GetProfil()
         {
-            var q = (from em in myContext1.Employees
-                     join ac in myContext1.Account on em.NIK equals ac.NIK
-                     join ar in myContext1.AccountRole on ac.NIK equals ar.AccountId
-                     join r in myContext1.Role on ar.RoleId equals r.RoleId
-                     join pro in myContext1.Profiling on ac.NIK equals pro.NIK
-                     join edu in myContext1.Education on pro.educationId equals edu.Id
-                     join uni in myContext1.University on edu.universityId equals uni.Id
-                     select new
-                     {
-                         em.NIK,
-                         em.FirstName,
-                         em.LastName,
-                         em.Email,
-                         em.Salary,
-                         em.PhoneNumber,
-                         em.BirthDate,
-                         em.Gender,
-                         r.RoleName,
-                         //ac.Password,
-                         edu.Degree,
-                         edu.GPA,
-                         uni.UniversityName
-                     });
-            return q.ToList();
+                var q = (from em in myContext1.Employees
+                         join ac in myContext1.Account on em.NIK equals ac.NIK
+                         join ar in myContext1.AccountRole on ac.NIK equals ar.AccountId
+                         join r in myContext1.Role on ar.RoleId equals r.RoleId
+                         join pro in myContext1.Profiling on ac.NIK equals pro.NIK
+                         join edu in myContext1.Education on pro.educationId equals edu.Id
+                         join uni in myContext1.University on edu.universityId equals uni.Id
+                         select new
+                         {
+                             em.NIK,
+                             em.FirstName,
+                             em.LastName,
+                             em.Email,
+                             em.Salary,
+                             em.PhoneNumber,
+                             em.BirthDate,
+                             em.Gender,
+                             r.RoleName,
+                             //ac.Password,
+                             edu.Degree,
+                             edu.GPA,
+                             uni.UniversityName
+                         });
+                return q.ToList();
         }
     }
 }

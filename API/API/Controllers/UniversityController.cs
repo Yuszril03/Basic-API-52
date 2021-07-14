@@ -1,6 +1,7 @@
 ﻿using API.Base;
 using API.Models;
 using API.Repository.Data;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class UniversityController : BaseController<University, UniversityRepository, int>
     {
         public UniversityController(UniversityRepository repository) : base(repository)

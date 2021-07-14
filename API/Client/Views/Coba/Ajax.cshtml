@@ -1,77 +1,141 @@
 ﻿@{
-    ViewData["Title"] = "Ajax";
+    ViewData["Title"] = "Employee";
     ViewData["Aplikasi"] = "API";
     Layout = "_LayoutCoba";
 }
 
 
 
-<h1 class="mt-5">Belajar Ajax</h1>
-
-<div class="table-responsive mt-5 mb-4">
+<h1 class="mt-5">Data Employee</h1>
+<div class="d-flex mt-3">
+    <button  class="btn btn-primary my-2 my-sm-0 m-1">Login</button>
+    <button  data-toggle="modal" id="register" data-target="#regis" class="btn btn-outline-primary my-2 my-sm-0 m-1">Registrasi</button>
+</div>
+<div class="table-responsive mt-3 mb-5">
     <table id="table" class="table table-sm table-hover text-capitalize">
         <thead class="thead-light">
             <tr>
-                <th scope="col" style="width: 8%">No</th>
-                <th scope="col">Name</th>
-                <th scope="col">Url</th>
-                <th scope="col" style="width: 8%">Opsi</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Role Name</th>
+                <th scope="col">University Name</th>
+                <th scope="col">Opsi</th>
+
+                @*<th scope="col" style="width: 8%">Opsi</th>*@
             </tr>
         </thead>
-        <tbody >
+        <tbody>
         </tbody>
     </table>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-capitalize" id="exampleModalLabel"></h5>
+                <h5 class="modal-title text-capitalize" id="judulD"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="modalBody">
-                <div class="text-center" id="imgFoto">
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">NIK</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="nikD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Full Name</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="nameD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Email</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="emailD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Salary</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="salaryD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Phone Number</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="phoneD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Birth Date</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="dateD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Gender</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="genderD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Role Name</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="roleD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">Degree</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="degreeD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">GPA</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="gpaD"></div>
+                </div>
+                <div class="row mt-3 p-1">
+                    <div class="col-4 font-weight-bold text-black-50">University</div>
+                    <div class="col-1 text-black-50">:</div>
+                    <div class="col font-weight-bold text-capitalize" id="uniD"></div>
+                </div>
+                @*<div class="text-center" id="imgFoto">
 
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50">Name</div>
-                    <div class="col-1 text-black-50">:</div>
-                    <div class="col font-weight-bold text-capitalize" id="namePoke">1</div>
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50">Height</div>
-                    <div class="col-1 text-black-50">:</div>
-                    <div class="col font-weight-bold text-capitalize" id="heightPoke">d</div>
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50">Weight</div>
-                    <div class="col-1 text-black-50">:</div>
-                    <div class="col font-weight-bold text-capitalize" id="weightPoke"></div>
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50">Abilities</div>
-                    <div class="col-1 text-black-50">:</div>
-                    <div class="col font-weight-bold text-capitalize" id="abilitiesPoke"></div>
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50">Type</div>
-                    <div class="col-1 text-black-50">:</div>
-                    <div class="col font-weight-bold text-capitalize" id="typePoke"></div>
-                </div>
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50"><u>Stance</u></div>
-                </div>
-                <div class="font-weight-bold text-capitalize" id="stancePoke"></div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50">Name</div>
+                        <div class="col-1 text-black-50">:</div>
+                        <div class="col font-weight-bold text-capitalize" id="namePoke">1</div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50">Height</div>
+                        <div class="col-1 text-black-50">:</div>
+                        <div class="col font-weight-bold text-capitalize" id="heightPoke">d</div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50">Weight</div>
+                        <div class="col-1 text-black-50">:</div>
+                        <div class="col font-weight-bold text-capitalize" id="weightPoke"></div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50">Abilities</div>
+                        <div class="col-1 text-black-50">:</div>
+                        <div class="col font-weight-bold text-capitalize" id="abilitiesPoke"></div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50">Type</div>
+                        <div class="col-1 text-black-50">:</div>
+                        <div class="col font-weight-bold text-capitalize" id="typePoke"></div>
+                    </div>
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50"><u>Stance</u></div>
+                    </div>
+                    <div class="font-weight-bold text-capitalize" id="stancePoke"></div>
 
-                <div class="row mt-3 p-1">
-                    <div class="col-4 font-weight-bold text-black-50"><u>Statistics </u></div>
-                </div>
-                <div id="static" class="p-1">
+                    <div class="row mt-3 p-1">
+                        <div class="col-4 font-weight-bold text-black-50"><u>Statistics </u></div>
+                    </div>
+                    <div id="static" class="p-1">
 
-                </div>
+                    </div>*@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -79,6 +143,157 @@
         </div>
     </div>
 </div>
+@*Registrasi*@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="regis" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Registrasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formRegis">
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input required type="text" placeholder="Enter NIK..." name="nik" id="nik" class="form-control" />
+                        <div id="validNIK" class="invalid-feedback">
+                            Please fill in a valid NIK.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input required type="text" placeholder="Enter First Name..." name="fname" id="fname" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid First Name.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input required type="text" placeholder="Enter Last Name..." name="lname" id="lname" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid Last Name.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Email</label>
+
+                                <input required type="text" placeholder="Enter Email..." name="email" id="email" class="form-control" />
+                                <div id="validEmail" class="invalid-feedback">
+                                    Please fill in a valid Email.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input required type="password" placeholder="Enter Password..." name="pass" id="pass" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid Last Name.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Gender</label><br />
+                                <select required class="custom-select" name="gender" id="gender">
+                                    <option selected value="">Choose...</option>
+                                    <option value="0">Laki-Laki</option>
+                                    <option value="1">Perempuan</option>
+                                </select>
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please provide a valid gender.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Birth Date</label>
+                                <input required type="date" placeholder="Enter Phone Number..." name="date" id="date" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid Birth Date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input required type="text" placeholder="Enter Phone Number..." name="phone" id="phone" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid Phone Number.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input required type="text" placeholder="Enter Salary..." name="salary" id="salary" class="form-control" />
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please fill in a valid Salary.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>University</label>
+                                <select required class="custom-select" name="uni" id="uni">
+                                </select>
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please provide a valid University.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Degree</label>
+                                <select class="custom-select" name="degree" id="degree">
+                                    <option value="" selected>Choose...</option>
+                                </select>
+                                @*<input required type="text" placeholder="Enter Degree..." name="degree" id="degree" class="form-control" />*@
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid Degree.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>GPA</label>
+                                <input required type="text" placeholder="Enter GPA..." name="gpa" id="gpa" class="form-control" />
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    Please fill in a valid GPA.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <div id="stEmail" style="display:none;"></div>
+                <div id="stNik" style="display:none;"></div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
 @section Scripts{
     <script type="text/javascript" src="~/js/Ajax.js"></script>
 }

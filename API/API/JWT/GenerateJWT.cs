@@ -19,10 +19,11 @@ namespace API.JWT
         {
             _config = config;
         }
-        public string GetJWT(string email, string role)
+        public string GetJWT(string email, string role,string name)
         {
             var claims = new[] {
            
+                    new Claim("Name", name),
                     new Claim("Email", email),
                     new Claim("Role", role),
                    };

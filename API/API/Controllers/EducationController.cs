@@ -14,8 +14,19 @@ namespace API.Controllers
     [ApiController]
     public class EducationController : BaseController<Education, EducationRepository, int>
     {
+        private readonly EducationRepository educationRepository;
         public EducationController(EducationRepository repository) : base(repository)
         {
+            educationRepository = repository;
         }
+        [HttpGet("/API/Education/GetUniEducation/{id}")]
+        public ActionResult GetUniEducation(int id)
+        {
+            var get = educationRepository.GetUniEducation(id);
+            
+            return Ok(get);
     }
+    }
+
+   
 }

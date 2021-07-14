@@ -69,23 +69,18 @@ namespace API.Controllers
                 case 1:
                     GenerateJWT jwt = new GenerateJWT(_config);
                     var data = employeeRepository.GetDataLogin(loginVM);
-                    var isi = jwt.GetJWT(data[0],data[1]);
-                    return Ok(new { status = HttpStatusCode.OK, result = isi, message = "Login Sukses" });
+                    var isi = jwt.GetJWT(data[0],data[1],data[2]);
+                    return Ok(new JwtTokenVM{ Status = HttpStatusCode.OK, Token = isi, Message = "Login Sukses" });
                 case 2:
-                    return BadRequest(new { status = HttpStatusCode.BadRequest, result = login, message = "NIK atau Email Kosong" });
-                    break;
+                    return BadRequest(new JwtTokenVM { Status = HttpStatusCode.BadRequest, Token = null, Message = "NIK atau Email Kosong" });
                 case 3:
-                    return BadRequest(new { status = HttpStatusCode.BadRequest, result = login, message = "Password Kosong" });
-                    break;
+                    return BadRequest(new JwtTokenVM { Status = HttpStatusCode.BadRequest, Token = null, Message = "Password Kosong" });
                 case 4:
-                    return BadRequest(new { status = HttpStatusCode.BadRequest, result = login, message = "NIK atau Email Belum Terdaftar Database" });
-                    break;
+                    return BadRequest(new JwtTokenVM { Status = HttpStatusCode.BadRequest, Token = null, Message = "NIK atau Email Belum Terdaftar Database"});
                 case 5:
-                    return BadRequest(new { status = HttpStatusCode.BadRequest, result = login, message = "Password Salah" });
-                    break;
+                    return BadRequest(new JwtTokenVM { Status = HttpStatusCode.BadRequest, Token = null, Message = "Password Salah"});
                 default:
-                    return BadRequest(new { status = HttpStatusCode.BadRequest, result = login, message = "NIK dan Password Kosong" });
-                    break;
+                    return BadRequest(new JwtTokenVM { Status = HttpStatusCode.BadRequest, Token = null, Message = "NIK dan Password Kosong"});
 
 
             }
@@ -163,7 +158,7 @@ namespace API.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("/API/Employees/GetProfil/{nik}")]
         public ActionResult GetProfil(string nik)
         {
@@ -171,21 +166,21 @@ namespace API.Controllers
             var getData = employeeRepository.GetProfil(nik);
             if (getData != null)
             {
-                return Ok(new { status = HttpStatusCode.OK, result = getData, message = "Data Berhasil Tampil" });
+                return Ok(getData);
             }
             else
             {
                 return BadRequest(new { status = HttpStatusCode.BadRequest, result = getData, message = "Nik atau Email Tidak tersimpan di database" });
             }
         }
-        [Authorize]
+        //[Authorize]
         [HttpGet("/API/Employees/GetProfil")]
         public ActionResult GetProfil()
         {
             var getData = employeeRepository.GetProfil();
             if (getData != null)
             {
-                return Ok(new { status = HttpStatusCode.OK, result = getData, message = "Data Berhasil Tampil" });
+                return Ok(getData);
             }
             else
             {

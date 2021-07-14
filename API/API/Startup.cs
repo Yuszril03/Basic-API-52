@@ -33,6 +33,10 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44311").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = true;
@@ -55,10 +59,7 @@ namespace API
             //});
                 
 
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44311"));
-            });
+            
 
 
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
@@ -66,13 +67,13 @@ namespace API
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
-            services.AddScoped<EmployeeRepository>();
-            services.AddScoped<UniversityRepository>();
-            services.AddScoped<EducationRepository>();
-            services.AddScoped<AccountRepository>();
-            services.AddScoped<ProfilingRepository>();
-            services.AddScoped<RoleRepository>();
-            services.AddScoped<AccountRoleRepository>();
+                services.AddScoped<EmployeeRepository>();
+                services.AddScoped<UniversityRepository>();
+                services.AddScoped<EducationRepository>();
+                services.AddScoped<AccountRepository>();
+                services.AddScoped<ProfilingRepository>();
+                services.AddScoped<RoleRepository>();
+                services.AddScoped<AccountRoleRepository>();
         }
 
 

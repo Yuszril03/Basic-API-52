@@ -26,7 +26,7 @@ namespace API.Models
         public string NIK { get; set; }
         [JsonIgnore]
         public virtual Account account  { get; set; }
-        //[JsonIgnore]
+        [JsonIgnore]
         public virtual Education education { get; set; }
         public  int educationId { get; set; }
 

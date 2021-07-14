@@ -1,8 +1,41 @@
-﻿h1{
-    background-color : salmon;
+﻿.dt-buttons button {
+    border-radius:3px;
+    border : 0px;
 }
-.contrainer2{
-    background-color :aqua;
-    overflow : auto;
-    width :300px;
+
+.dt-buttons .copy {
+    background-color: #6c757d;
+    color: white;
 }
+    .dt-buttons .copy:hover {
+        color: #6c757d;
+        border: 1px solid cadetblue;
+    }
+.dt-buttons .csv {
+    background-color: cornflowerblue;
+    color:white;
+}
+.dt-buttons .csv:hover {
+    color: cornflowerblue;
+}
+.dt-buttons .excel {
+    background-color: #28a745;
+    color: white;
+}
+    .dt-buttons .excel:hover {
+        color: #28a745;
+    }
+.dt-buttons .pdf {
+    background-color: #dc3545;
+    color: white;
+}
+    .dt-buttons .pdf:hover {
+        color: #dc3545;
+    }
+.dt-buttons .print {
+    background-color: #ffc107;
+    color: white;
+}
+    .dt-buttons .print:hover {
+        color: #ffc107;
+    }

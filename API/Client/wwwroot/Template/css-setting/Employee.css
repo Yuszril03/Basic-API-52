@@ -1,0 +1,24 @@
+﻿
+.dt-buttons button {
+border-radius: 10px;
+}
+
+.dt-buttons .copy {
+  color: dimgrey;
+}
+
+.dt-buttons .csv {
+   color: cornflowerblue;
+}
+
+.dt-buttons .excel {
+    color: #28a745;
+}
+
+.dt-buttons .pdf {
+   color: #dc3545;
+}
+
+.dt-buttons .print {
+    color: #ffc107;
+}

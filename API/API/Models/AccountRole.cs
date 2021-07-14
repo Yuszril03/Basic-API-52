@@ -21,6 +21,7 @@ namespace API.Models
 
         [Key]
         public int AccountRoleId { get; set; }
+        [JsonIgnore]
         public virtual Account account { get; set; }
         public string AccountId { get; set; }
         [JsonIgnore]

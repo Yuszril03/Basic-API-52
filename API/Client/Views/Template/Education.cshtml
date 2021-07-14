@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Education";
+    ViewData["Aplikasi"] = "API";
+    Layout = "_LayoutTemplate";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Education</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="https://localhost:44311/Template">API</a></li>
+                    <li class="breadcrumb-item active">Education</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card">
+            <div class="card-body">
+                <button class="btn btn-success float-right"><i class="fa fa-plus-circle"></i> Add Education</button>
+                <div class="table-responsive">
+                    <table id="table" class="table table-sm table-hover text-capitalize">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Name Education</th>
+                                <th>Degree</th>
+                                <th>GPA</th>
+                                <th>University</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+@section Scripts{
+    <script type="text/javascript" src="~/Template/js-setting/Education.js"></script>
+}

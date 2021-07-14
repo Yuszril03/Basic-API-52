@@ -38,7 +38,7 @@ namespace API.Models
         public string PhoneNumber { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        //[JsonIgnore]
+        [JsonIgnore]
         public virtual Account account { get; set; }
 
     }

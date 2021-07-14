@@ -27,7 +27,7 @@ namespace API.Models
         [JsonIgnore]
         public virtual University university { get; set; }
         public int universityId { get; set; }
-        //[JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<Profiling> profilings { get; set; }
     }
 }

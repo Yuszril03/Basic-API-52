@@ -1,4 +1,5 @@
 ﻿using API.Repository.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace API.Base
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class BaseController<Entity,Repository,Key> : ControllerBase
         where Entity : class
         where Repository : IRepository<Entity,Key>
@@ -29,7 +31,7 @@ namespace API.Base
             if (get != null)
             {
                 //return Ok(get);
-                return Ok(new { status = HttpStatusCode.OK, result = get, message = "Data tersedia" });
+                return Ok(get);
             }
             else
             {
@@ -44,7 +46,7 @@ namespace API.Base
             if (get != null)
             {
                 //return Ok(get);
-                return Ok(new { status = HttpStatusCode.OK, result = get, message = "Data tersedia" });
+                return Ok(get);
             }
             else
             {
@@ -58,7 +60,7 @@ namespace API.Base
             var insert = repository.Insert(entity);
             if (insert > 0)
             {
-                return Ok(new { status = HttpStatusCode.OK, result = insert, message = "Berhasil tersimpan" });
+                return Ok(insert);
             }
             else
             {
@@ -66,13 +68,14 @@ namespace API.Base
             }
         }
         [HttpDelete("{key}")]
+        [EnableCors("AllowOrigin")]
         public ActionResult Delete(Key key)
         {
 
             var delete = repository.Delete(key);
             if (delete > 0)
             {
-                return Ok(new { status = HttpStatusCode.OK, result = delete, message = "Berhasil Delete" });
+                return Ok(delete);
             }
             else
             {
@@ -86,7 +89,7 @@ namespace API.Base
             var update = repository.Update(entity, key);
             if (update > 0)
             {
-                return Ok(new { status = HttpStatusCode.OK, result = update, message = "Berhasil diperbarui" });
+                return Ok(update);
             }
             else
             {

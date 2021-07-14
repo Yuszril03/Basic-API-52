@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    ViewData["Aplikasi"] = "API";
+    ViewData["Css"] = "~/Template/css-setting/Home.css";
+    Layout = "_LayoutTemplate";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Home</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Template">API</a></li>
+                    <li class="breadcrumb-item active">Home</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-lightblue"><i class="fa fa-user-tie"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Employee</span>
+                        <span class="info-box-number" id="jmlEmploy"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-orange"><i class="fa fa-project-diagram"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Role</span>
+                        <span class="info-box-number" id="jmlRole"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="fa fa-university"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Univesity</span>
+                        <span class="info-box-number" id="jmlUni"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg connectedSortable">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-venus-mars mr-1"></i>
+                            Gender
+                        </h3>
+
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                            <!-- Morris chart - Sales -->
+                            <div id="gender" class="gender"></div>
+
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+
+
+            </section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg connectedSortable">
+
+                <!-- Map card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-university mr-1"></i>
+                            Statistics University
+                        </h3>
+
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                            <!-- Morris chart - Sales -->
+                            <div id="university" class="university" style="height:300px;"></div>
+
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </section>
+            <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+@section Scripts{
+    <script src="~/Template/js-setting/Home.js"></script>
+}
